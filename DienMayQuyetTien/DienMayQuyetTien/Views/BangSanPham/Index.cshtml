@@ -2,8 +2,13 @@
 
 @{
     ViewBag.Title = "Bảng Sản Phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
+<style>
+    .pull-left {
+        float: left !important;
+    }
+</style>
 <h2>Bảng Sản Phẩm</h2>
 
 <p>
@@ -36,7 +41,7 @@
             <th></th>
         </tr>
     </thead>
-    
+
     <tbody>
         @foreach (var item in Model)
         {
@@ -64,9 +69,15 @@
                     @item.TenSP
                 </td>
                 <td>
-                    @Html.ActionLink("Sửa", "Edit", new { id = item.id }) |
-                    @Html.ActionLink("Xem", "Details", new { id = item.id }) |
-                    @Html.ActionLink("Xóa", "Delete", new { id = item.id })
+                    <a href="@Url.Action("Edit", new { id = item.id })">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = item.id })">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                    <a href="@Url.Action("Details", new { id = item.id })">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </a>
                 </td>
             </tr>
 
@@ -78,8 +89,14 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <script>
         $(document).ready(function () {
-            $('.BangSanPham').DataTable();
+            var table = $('.BangSanPham').DataTable({
+                dom: 'frtip'
+
+            });
+
+            $('.dataTables_filter').addClass('pull-left');
         });
+
     </script>
     
 }

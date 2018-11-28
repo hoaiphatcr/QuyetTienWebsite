@@ -12,13 +12,13 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>BangSanPham</h4>
+        <h4>Bảng sản phẩm</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MaSP, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MaSP, "Mã SP", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MaSP)
                 @Html.ValidationMessageFor(model => model.MaSP)
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TenSP, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TenSP, "Tên SP", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TenSP)
                 @Html.ValidationMessageFor(model => model.TenSP)
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Loai_id, "Loai_id", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Loai_id, "Loại SP", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("Loai_id", String.Empty)
                 @Html.ValidationMessageFor(model => model.Loai_id)
@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GiaBan, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.GiaBan, "Giá bán", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GiaBan)
                 @Html.ValidationMessageFor(model => model.GiaBan)
@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GiaGoc, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.GiaGoc, "Giá gốc", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GiaGoc)
                 @Html.ValidationMessageFor(model => model.GiaGoc)
@@ -58,7 +58,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GiaGop, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.GiaGop, "Giá trả góp", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GiaGop)
                 @Html.ValidationMessageFor(model => model.GiaGop)
@@ -66,7 +66,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SoLuongTon, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SoLuongTon, "Số lượng tồn", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SoLuongTon)
                 @Html.ValidationMessageFor(model => model.SoLuongTon)
@@ -82,7 +82,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Index")"><span class="glyphicon glyphicon-arrow-left"></span></a>
 </div>
 
 @section Scripts {
